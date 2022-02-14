@@ -1,0 +1,68 @@
+<ion-list>
+    <ion-list-header>
+        <ion-label>
+            Options
+        </ion-label>
+    </ion-list-header>
+
+    <ion-item [formGroup]="formGroup"
+        *ngFor="let option of options" (click)="removeItemRoom(option)" button>
+        <ion-label>
+            {{ option.type !== 5 ? option.name + ':' : option.name }}
+        </ion-label>
+
+        <ion-select formControlName="bgColor" okText="Confirm" cancelText="Cancel" *ngIf="option.type == 0">
+            <ion-select-option value="0">Default</ion-select-option>
+            <ion-select-option value="1">Primary</ion-select-option>
+            <ion-select-option value="2">Secondary</ion-select-option>
+            <ion-select-option value="3">Tertiary</ion-select-option>
+            <ion-select-option value="4">Success</ion-select-option>
+            <ion-select-option value="5">Warning</ion-select-option>
+            <ion-select-option value="6">Danger</ion-select-option>
+            <ion-select-option value="7">Dark</ion-select-option>
+            <ion-select-option value="8">Medium</ion-select-option>
+            <ion-select-option value="9">Light</ion-select-option>
+            <ion-select-option value="10" [disabled]="roomItem.type !== 7">Transparent</ion-select-option>
+        </ion-select>
+
+        <ion-input formControlName="content" *ngIf="option.type == 1"
+            [attr.disabled]="[5,6].includes(roomItem.type)"></ion-input>
+
+        <ion-select formControlName="contentColor" okText="Confirm"
+            cancelText="Cancel" *ngIf="option.type == 2" [attr.disabled]="[5,6].includes(roomItem.type)">
+            <ion-select-option value="0">Default</ion-select-option>
+            <ion-select-option value="1">Primary</ion-select-option>
+            <ion-select-option value="2">Secondary</ion-select-option>
+            <ion-select-option value="3">Tertiary</ion-select-option>
+            <ion-select-option value="4">Success</ion-select-option>
+            <ion-select-option value="5">Warning</ion-select-option>
+            <ion-select-option value="6">Danger</ion-select-option>
+            <ion-select-option value="7">Dark</ion-select-option>
+            <ion-select-option value="8">Medium</ion-select-option>
+            <ion-select-option value="9">Light</ion-select-option>
+            <ion-select-option value="10" [disabled]="roomItem.type === 7">Transparent</ion-select-option>
+        </ion-select>
+
+        <ion-select formControlName="status" okText="Confirm"
+            cancelText="Cancel" *ngIf="option.type == 3" [attr.disabled]="[5,6,7].includes(roomItem.type)">
+            <ion-select-option value="0">Empty</ion-select-option>
+            <ion-select-option value="1">Assigned order</ion-select-option>
+            <ion-select-option value="2">Order shipped</ion-select-option>
+            <ion-select-option value="3">Not apply</ion-select-option>
+        </ion-select>
+
+        <ion-select formControlName="type" okText="Confirm"
+            cancelText="Cancel" *ngIf="option.type == 4">
+            <ion-select-option value="0">Horizontal rectangle</ion-select-option>
+            <ion-select-option value="1">Vertical rectangle</ion-select-option>
+            <ion-select-option value="2">Square</ion-select-option>
+            <ion-select-option value="3">Rhomb</ion-select-option>
+            <ion-select-option value="4">Circle</ion-select-option>
+            <ion-select-option value="5">Vertical wall</ion-select-option>
+            <ion-select-option value="6">Horizontal wall</ion-select-option>
+            <ion-select-option value="7">Text</ion-select-option>
+        </ion-select>
+
+        <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+</ion-list>

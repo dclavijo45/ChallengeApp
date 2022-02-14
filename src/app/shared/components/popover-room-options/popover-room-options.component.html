@@ -1,0 +1,16 @@
+<ion-list>
+    <ion-item [formGroup]="formGroup" button>
+        <ion-label>
+            Room name:
+        </ion-label>
+        <ion-input formControlName="name" placeholder="Digit here"></ion-input>
+        <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+
+    <ion-item (click)="removeRoom()" button>
+        <ion-label>
+            Remove room
+        </ion-label>
+        <ion-ripple-effect></ion-ripple-effect>
+    </ion-item>
+</ion-list>

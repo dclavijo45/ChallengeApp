@@ -1,0 +1,9 @@
+<ion-list>
+    <ion-item [formGroup]="formGroup">
+        <ion-label>
+            Room name:
+        </ion-label>
+        <ion-input formControlName="name" placeholder="Digit here"></ion-input>
+        <ion-button (click)="addRoom()" [disabled]="formGroup.value?.name?.trim()?.length == 0">Add</ion-button>
+    </ion-item>
+</ion-list>

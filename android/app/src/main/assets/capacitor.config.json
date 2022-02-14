@@ -1,0 +1,6 @@
+{
+	"appId": "com.challengue.ionic",
+	"appName": "Challenge",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,27 +1,48 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.bg-cook {
+    width: 1086px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.cook {
+    height: 500px;
+    background-color: #F7F7F7;
+    margin-top: 30px;
+    padding: 30px;
+    position: relative;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+@media(min-width: 768px){
+    .bg-cook {
+        padding-left: 100px;
+        padding-right: 102px;
+    }
 }
 
-#container a {
-  text-decoration: none;
+@media(max-width: 767px){
+    .bg-cook {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+.add-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #F7F7F7;
+    border-radius: 50%;
+    top: 0px;
+    left: 427px;
+    cursor: pointer;
+    transition-timing-function: ease-in-out;
+    transition: 400ms;
+}
+
+.add-icon:hover {
+    background-color: #e4e4e4;
+}
+
+.add-scroll {
+    overflow-x: auto;
 }

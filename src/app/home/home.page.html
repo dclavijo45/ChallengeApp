@@ -1,20 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <div class="add-scroll">
+        <app-header></app-header>
+        <div class="bg-cook">
+            <div class="cook">
+                <ion-icon class="add-icon" name="add-circle-outline"
+                    (click)="addRoomItem($event)" *ngIf="roomSelected !== null"></ion-icon>
+                <app-cook></app-cook>
+            </div>
+        </div>
+    </div>
 </ion-content>

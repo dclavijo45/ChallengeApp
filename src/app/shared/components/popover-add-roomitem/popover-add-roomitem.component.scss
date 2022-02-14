@@ -1,0 +1,76 @@
+.bg-default {
+    background-color: #E0E0E0;
+}
+
+.figure {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.title-item {
+    margin-bottom: 20px;
+}
+
+/* Figures */
+.item-square {
+    width: 54.8px;
+    /* Base: 822px*/
+    height: 55px;
+    /* Base: 440 - fix border: 2px*/
+}
+
+.item-rhomb {
+    width: 54.8px;
+    /* Base: 822px*/
+    height: 55px;
+    /* Base: 440 - fix border: 2px*/
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.item-circle {
+    width: 54.8px;
+    /* Base: 822px*/
+    height: 55px;
+    /* Base: 440 - fix border: 2px*/
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.item-horizontal-rectangle {
+    width: 109.6px;
+    /* Base: 822px*/
+    height: 55px;
+    /* Base: 440 - fix border: 2px*/
+}
+
+.item-vertical-rectangle {
+    width: 54.8px;
+    /* Base: 822px*/
+    height: 110px;
+    /* Base: 440 - fix border: 2px*/
+}
+
+.item-vertical-wall {
+    width: 13.7px;
+    /* Base: 822px*/
+    height: 55px;
+    /* Base: 440 - fix border: 2px*/
+}
+
+.item-horizontal-wall {
+    width: 54.8px;
+    /* Base: 822px*/
+    height: 13.75px;
+    /* Base: 440 - fix border: 2px*/
+}
+
+.item-text {
+    border: 2px dotted black;
+}

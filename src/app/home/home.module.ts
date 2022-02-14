@@ -5,15 +5,20 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { ComponentsModule } from '../shared/components/components.module';
+
+import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    HomePageRoutingModule
-  ],
-  declarations: [HomePage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        ComponentsModule,
+        HomePageRoutingModule,
+    ],
+    declarations: [HomePage],
+    providers: [ScreenOrientation]
 })
 export class HomePageModule {}

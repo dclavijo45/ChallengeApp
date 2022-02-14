@@ -1,0 +1,57 @@
+ion-segment-button {
+    border: 1px solid lightgray;
+    margin-right: 5px;
+    min-width: auto;
+    --indicator-box-shadow: none;
+    --background-checked: var(--ion-color-primary);
+    --indicator-color: var(--ion-color-primary);
+    --color-checked: var(--ion-color-light);
+}
+
+ion-segment-button::before{
+    border-left: none;
+}
+
+ion-segment {
+    background-color: #F9F9F9;
+    padding: 5px;
+    width: 884px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-add-room {
+    position: absolute;
+    right: 0;
+}
+
+@media(min-width: 768px){
+    .header {
+        padding-left: 100px;
+        padding-right: 102px;
+    }
+}
+
+@media(max-width: 767px){
+    .header {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+.cdk-drag-preview {
+  border-radius: 4px;
+    text-transform: lowercase;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.list-button.cdk-drop-list-dragging ion-segment-button:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
