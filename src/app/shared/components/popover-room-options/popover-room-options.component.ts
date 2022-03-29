@@ -19,7 +19,6 @@ export class PopoverRoomOptionsComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private toastController: ToastController,
-        private popoverController: PopoverController,
         private roomService: RoomService,
         private alertController: AlertController,
         private localStorageService: LocalStorageService

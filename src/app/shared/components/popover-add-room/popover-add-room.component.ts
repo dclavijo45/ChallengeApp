@@ -8,19 +8,16 @@ import { RoomService } from '../../services/room.service';
     styleUrls: ['./popover-add-room.component.scss'],
 })
 export class PopoverAddRoomComponent implements OnInit {
-
     formGroup: FormGroup;
 
     constructor(
         private formBuilder: FormBuilder,
-        private roomService: RoomService,
-    ) { }
+        private roomService: RoomService
+    ) {}
 
     ngOnInit() {
         this.formGroup = this.formBuilder.group({
-            name: ['', [
-                Validators.required,
-            ]],
+            name: ['', [Validators.required]],
         });
     }
 
@@ -28,6 +25,6 @@ export class PopoverAddRoomComponent implements OnInit {
         if (this.formGroup.valid) {
             const name: string = this.formGroup.get('name').value;
             this.roomService.addRoom(name);
-        };
+        }
     }
 }

@@ -1,31 +1,33 @@
-<div class="wrapper">
-    <div *ngFor="let roomItem of roomItems; let i = index;"
+<div class="wrapper" (mousemove)="mouseMove($event)" (mouseleave)="mouseLeave()">
+    <ion-icon class="arrow-icon " name="color-wand-outline"
+        cdkDragBoundary=".wrapper"
+        [cdkDragFreeDragPosition]="{x: positionIcon.x, y: positionIcon.y}" cdkDrag>
+    </ion-icon>
+
+    <div *ngFor="let roomItem of roomItems; let index = index;"
         class="parent-figure animated fadeIn"
-        [cdkDragBoundary]="roomItem.parent" [cdkDragDisabled]="roomItem.locked"
-        (dblclick)="toggleLockItem(roomItem)" [cdkDragFreeDragPosition]="roomItem.position"
+        [cdkDragBoundary]="roomItem.parent"
+        [cdkDragDisabled]="roomItem.locked"
+        [cdkDragFreeDragPosition]="{x: roomItem.position.x, y: roomItem.position.y}"
+        (dblclick)="toggleLockItem(roomItem)"
+        (cdkDragStarted)="selectRoomItem(roomItem)"
         (cdkDragEnded)="setPositionRoomItem($event, roomItem)"
         (press)="openOptions($event, roomItem)" cdkDrag>
-        <ion-badge class="badge-lock" [ngClass]="{'badge-lock-fix-text': roomItem.type === 7}"
+
+        <ion-badge class="badge-lock"
+            [ngClass]="{'badge-lock-fix-text': roomItem.type === 7}"
             [color]="roomItem.bgColor !== 5 ? 'warning' : 'danger'"
             *ngIf="roomItem.locked">
             <ion-icon name="lock-closed-outline"></ion-icon>
         </ion-badge>
 
-        <ion-text [color]="
-            roomItem.contentColor === 1 ? 'primary' :
-            roomItem.contentColor === 2 ? 'secondary' :
-            roomItem.contentColor === 3 ? 'tertiary' :
-            roomItem.contentColor === 4 ? 'success' :
-            roomItem.contentColor === 5 ? 'warning' :
-            roomItem.contentColor === 6 ? 'danger' :
-            roomItem.contentColor === 7 ? 'dark' :
-            roomItem.contentColor === 8 ? 'medium' :
-            roomItem.contentColor === 9 ? 'light' :
-            roomItem.contentColor === 10 ? 'transparent' : 'dark'"
+        <ion-text [color]="roomItem | roomItemTextColor"
             *ngIf="![5, 6].includes(roomItem.type)"
             [ngClass]="{
                 'text-item-fix-figure': roomItem.type !== 7,
-                'item-text-hover-fix': roomItem.type === 7
+                'item-text-hover-fix': roomItem.type === 7,
+                'cursor-no-drop': roomItem.locked,
+                'cursor-move': !roomItem.locked
             }"
             class="ion-text-center no-select text-item" [title]="roomItem.content">
 
@@ -34,28 +36,7 @@
         </ion-text>
 
         <div class="item-figure ion-activatable ripple-parent"
-            [ngClass] = "{
-                'cursor-no-drop': roomItem.locked, 'cursor-move': !roomItem.locked,
-                'item-horizontal-rectangle': roomItem.type === 0,
-                'item-vertical-rectangle': roomItem.type === 1,
-                'item-square': roomItem.type === 2,
-                'item-rhomb': roomItem.type === 3,
-                'item-circle': roomItem.type === 4,
-                'item-vertical-wall': roomItem.type === 5,
-                'item-horizontal-wall': roomItem.type === 6,
-                'item-item-text': roomItem.type === 7,
-                'item-figure-color-default': roomItem.bgColor === 0,
-                'item-figure-color-primary': roomItem.bgColor === 1,
-                'item-figure-color-secondary': roomItem.bgColor === 2,
-                'item-figure-color-tertiary': roomItem.bgColor === 3,
-                'item-figure-color-success': roomItem.bgColor === 4,
-                'item-figure-color-warning': roomItem.bgColor === 5,
-                'item-figure-color-danger': roomItem.bgColor === 6,
-                'item-figure-color-dark': roomItem.bgColor === 7,
-                'item-figure-color-medium': roomItem.bgColor === 8,
-                'item-figure-color-light': roomItem.bgColor === 9,
-                'item-figure-color-transparent': roomItem.bgColor === 10
-            }">
+            [ngClass] = "roomItem | roomFigure">
             <ion-ripple-effect *ngIf="roomItem.type !== 7"></ion-ripple-effect>
         </div>
     </div>

@@ -9,6 +9,11 @@
     background-color: #E0E0E0;
     text-align: center;
     margin: 0;
+    transition: all 100ms;
+}
+
+.item-figure:hover {
+    border: 1.6px dotted black;
 }
 
 .parent-figure {
@@ -17,32 +22,13 @@
     position: absolute;
 }
 
-.item-figure:hover {
-    border: 2px dotted black;
-}
-
-.item-figure:active {
-    border: 2px dotted black;
-}
-
-.item-figure:focus{
-    border: 2px dotted black;
-}
-
 .item-text-hover-fix:hover {
     border: 2px dotted black;
     cursor: move;
 }
 
-.item-text-hover-fix:active {
-    border: 2px dotted black;
-}
-
-.item-text-hover-fix:focus {
-    border: 2px dotted black;
-}
-
 /* Figures */
+
 .item-square {
     width: 54.8px;
     /* Base: 822px*/
@@ -86,14 +72,14 @@
     /* Base: 440 - fix border: 2px*/
 }
 
-.item-vertical-wall{
+.item-vertical-wall {
     width: 13.7px;
     /* Base: 822px*/
     height: 55px;
     /* Base: 440 - fix border: 2px*/
 }
 
-.item-horizontal-wall{
+.item-horizontal-wall {
     width: 54.8px;
     /* Base: 822px*/
     height: 13.75px;
@@ -107,7 +93,9 @@
     /* Base: 440 - fix border: 2px*/
 }
 
+
 /* Figures color */
+
 .item-figure-color-default {
     background-color: #E0E0E0;
 }
@@ -176,8 +164,22 @@
 }
 
 .text-item-fix-figure {
+    width: -webkit-fill-available;
     position: absolute;
     z-index: 1;
     top: 19px;
-    left: 18px;
+}
+
+.arrow-icon {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.selected-figure-dark {
+    border: 3px dotted black !important;
+}
+
+.selected-figure-light {
+    border: 3px dotted white !important;
 }

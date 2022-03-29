@@ -3,7 +3,6 @@ import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/n
 import { PopoverController } from '@ionic/angular';
 import { IRoom } from '../interfaces/room';
 import { PopoverAddRoomitemComponent } from '../shared/components/popover-add-roomitem/popover-add-roomitem.component';
-import { LocalStorageService } from '../shared/services/local-storage.service';
 import { RoomService } from '../shared/services/room.service';
 
 @Component({
@@ -26,7 +25,7 @@ export class HomePage implements OnInit {
 
     ngOnInit(): void {
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE)
-        .catch(e => console.log('ScreenOrientation not available on this device'));
+        .catch(e => console.log('ScreenOrientation is not available on this device'));
     }
 
     addRoomItem(event: Event){

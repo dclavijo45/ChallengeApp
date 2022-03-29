@@ -12,46 +12,57 @@ import { PopoverRoomOptionsComponent } from '../popover-room-options/popover-roo
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
     get rooms(): IRoom[] {
         return this.roomService.rooms;
     }
 
     constructor(
         private roomService: RoomService,
-        private popoverController: PopoverController,
-    ) { }
+        private popoverController: PopoverController
+    ) {}
 
     ngOnInit() {}
 
-    selectRoom(room: IRoom): void{
+    selectRoom(room: IRoom): void {
         this.roomService.roomSelected = room;
     }
 
-    addRoom(event: Event): void{
-        this.popoverController.create({
-            component: PopoverAddRoomComponent,
-            showBackdrop: false,
-            event,
-            translucent: true
-        }).then(async popover => {
-            await popover.present();
-        });
+    get currentRoom(): IRoom {
+        return this.roomService.roomSelected;
     }
 
-    roomOptions(event: Event, room: IRoom): void{
-        this.popoverController.create({
-            component: PopoverRoomOptionsComponent,
-            showBackdrop: false,
-            translucent: true,
-            componentProps: {room},
-            event
-        }).then(async popover => {
-            await popover.present();
-        });
+    addRoom(event: Event): void {
+        this.popoverController
+            .create({
+                component: PopoverAddRoomComponent,
+                showBackdrop: false,
+                event,
+                translucent: true,
+            })
+            .then(async (popover) => {
+                await popover.present();
+            });
     }
 
-    setPositionRoom(event: CdkDragDrop<any>): void{
-        moveItemInArray(this.roomService.rooms, event.previousIndex, event.currentIndex);
+    roomOptions(event: Event, room: IRoom): void {
+        this.popoverController
+            .create({
+                component: PopoverRoomOptionsComponent,
+                showBackdrop: false,
+                translucent: true,
+                componentProps: { room },
+                event,
+            })
+            .then(async (popover) => {
+                await popover.present();
+            });
+    }
+
+    setPositionRoom(event: CdkDragDrop<any>): void {
+        moveItemInArray(
+            this.roomService.rooms,
+            event.previousIndex,
+            event.currentIndex
+        );
     }
 }

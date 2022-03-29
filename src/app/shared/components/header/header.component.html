@@ -1,11 +1,6 @@
 <div class="header">
-    <ion-segment mode="ios"
-        class="list-button" cdkDropList cdkDropListOrientation="horizontal"
-        (cdkDropListDropped)="setPositionRoom($event)" scrollable>
-        <ion-segment-button value="{{ room.id }}" *ngFor="let room of rooms"
-            (click)="selectRoom(room)" cdkDragBoundary=".list-button"
-            (press)="roomOptions($event, room)"
-            color="light" cdkDrag>
+    <ion-segment mode="ios" class="list-button" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="setPositionRoom($event)" [value]="currentRoom ? currentRoom.id : ''" scrollable>
+        <ion-segment-button value="{{ room.id }}" *ngFor="let room of rooms" (click)="selectRoom(room)" cdkDragBoundary=".list-button" class="room-button" (press)="roomOptions($event, room)" color="light" cdkDrag>
             <ion-label>{{ room.name }}</ion-label>
         </ion-segment-button>
 

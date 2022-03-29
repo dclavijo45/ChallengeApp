@@ -8,6 +8,7 @@ export interface IRoomItem{
     parent: string,
     bgColor: Color,
     contentColor: Color,
+    selected: boolean,
 }
 
 export interface PositionRoomItem {

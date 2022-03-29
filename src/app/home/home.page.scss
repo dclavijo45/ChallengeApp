@@ -12,14 +12,14 @@
     position: relative;
 }
 
-@media(min-width: 768px){
+@media(min-width: 768px) {
     .bg-cook {
         padding-left: 100px;
         padding-right: 102px;
     }
 }
 
-@media(max-width: 767px){
+@media(max-width: 767px) {
     .bg-cook {
         padding-left: 30px;
         padding-right: 30px;
@@ -40,7 +40,7 @@
 }
 
 .add-icon:hover {
-    background-color: #e4e4e4;
+    background-color: #bebcbc;
 }
 
 .add-scroll {
