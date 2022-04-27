@@ -1,10 +1,11 @@
 import { CdkDrag, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+
 import { IRoomItem } from 'src/app/interfaces/room-item';
 import { LocalStorageService } from '../../services/local-storage.service';
-import { RoomService } from '../../services/room.service';
+import { PopoverController } from '@ionic/angular';
 import { PopoverRoomitemOptionsComponent } from '../popover-roomitem-options/popover-roomitem-options.component';
+import { RoomService } from '../../services/room.service';
 
 @Component({
     selector: 'app-cook',
@@ -31,18 +32,6 @@ export class CookComponent implements OnInit {
         x: 411,
         y: 220
     }
-
-    mouseMove(e: any): void {
-        this.positionIcon.x = e.layerX == 823 ? 822 : e.layerX;
-        this.positionIcon.y = e.layerY == 441 ? 440 : e.layerY;
-
-        this.canUpdateRI = true;
-    }
-
-    mouseLeave(): void {
-        this.canUpdateRI = false;
-    }
-
     selectRoomItem(roomItem: IRoomItem): void {
         roomItem.selected = true;
     }
@@ -83,24 +72,5 @@ export class CookComponent implements OnInit {
 
         roomItem.selected = false;
         this.localStorageService.updateRooms();
-    }
-
-    private backupPositionRoomItem(x: number, y: number): void {
-        localStorage.setItem("positionRoomItemBk", JSON.stringify({
-            x,
-            y
-        }));
-    };
-
-    private restorePositionRoomItem(): CdkDrag["freeDragPosition"] {
-        const positionRoomItemBk = JSON.parse(localStorage.getItem("positionRoomItemBk"));
-        if (positionRoomItemBk) {
-            return positionRoomItemBk;
-        }else{
-            return {
-                x: 411,
-                y: 220
-            };
-        }
     }
 }

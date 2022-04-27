@@ -1,9 +1,4 @@
-<div class="wrapper" (mousemove)="mouseMove($event)" (mouseleave)="mouseLeave()">
-    <ion-icon class="arrow-icon " name="color-wand-outline"
-        cdkDragBoundary=".wrapper"
-        [cdkDragFreeDragPosition]="{x: positionIcon.x, y: positionIcon.y}" cdkDrag>
-    </ion-icon>
-
+<div class="wrapper">
     <div *ngFor="let roomItem of roomItems; let index = index;"
         class="parent-figure animated fadeIn"
         [cdkDragBoundary]="roomItem.parent"
