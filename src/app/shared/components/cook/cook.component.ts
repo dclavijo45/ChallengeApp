@@ -26,7 +26,7 @@ export class CookComponent implements OnInit {
 
     ngOnInit() {}
 
-    canUpdateRI: boolean = false;
+    // canUpdateRI: boolean = false;
 
     positionIcon: CdkDrag["freeDragPosition"] = {
         x: 411,
@@ -62,13 +62,13 @@ export class CookComponent implements OnInit {
     }
 
     setPositionRoomItem(event: CdkDragEnd, roomItem: IRoomItem): void {
-        if (this.canUpdateRI) {
+        // if (this.canUpdateRI) {
             roomItem.position.x = event.source.getFreeDragPosition().x;
             roomItem.position.y = event.source.getFreeDragPosition().y;
-        }else{
-            roomItem.position.x = Math.random() * 411;
-            roomItem.position.y = Math.random() * 220;
-        };
+        // }else{
+        //     roomItem.position.x = Math.random() * 411;
+        //     roomItem.position.y = Math.random() * 220;
+        // };
 
         roomItem.selected = false;
         this.localStorageService.updateRooms();
